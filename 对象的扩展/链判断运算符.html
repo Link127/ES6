@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const firstName = (message &&
+            message.body &&
+            message.body.user &&
+            message.body.user.firstName) || 'default';
+        // 等同于
+        const firstName = message?.body?.user?.firstName || 'default';
+        // 上面代码使用了?.运算符，直接在链式调用的时候判断，左侧的对象是否为null或undefined。如果是的，就不再往下运算，而是返回undefined。
+    </script>
+</body>
+
+</html>
