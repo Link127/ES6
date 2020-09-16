@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 合并数组。复制数组（浅拷贝）
+
+        var a1 = [{
+            foo: 1
+        }];
+        var a2 = [{
+            bar: 2
+        }];
+
+        var a3 = a1.concat(a2);
+        var a4 = [...a1, ...a2];
+        // ... 是浅拷贝操作符，改变a1 a2会导致a3 a4改变
+
+        // 解构字符串
+        console.log([..."hello"])
+    </script>
+</body>
+
+</html>
