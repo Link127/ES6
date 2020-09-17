@@ -9,15 +9,23 @@
 
 <body>
     <script>
-        const log = {};
+        // const log = {};
 
-        log.levels = {
-            DEBUG: Symbol('debug'),
-            INFO: Symbol('info'),
-            WARN: Symbol('warn')
+        // log.levels = {
+        //     DEBUG: Symbol('debug'),
+        //     INFO: Symbol('info'),
+        //     WARN: Symbol('warn')
+        // };
+        // console.log(log.levels.DEBUG, 'debug message');
+        // console.log(log.levels.INFO, 'info message');
+
+        let mySymbol = Symbol();
+
+        // 第一种写法
+        let a = {
+            b: Symbol("aa"),
+            [mySymbol]:"sdasda"
         };
-        console.log(log.levels.DEBUG, 'debug message');
-        console.log(log.levels.INFO, 'info message');
     </script>
 </body>
 
