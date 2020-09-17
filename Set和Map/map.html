@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，
+
+        const m = new Map();
+        const o = {
+            p: 'Hello World'
+        };
+
+        m.set(o, 'content')
+
+        // Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组
+
+
+
+        const map = new Map([
+            ['name', '张三'],
+            ['title', 'Author']
+        ]);
+
+        map.size // 2
+        map.has('name') // true
+        map.get('name') // "张三"
+        map.has('title') // true
+        map.get('title') // "Author"
+    </script>
+</body>
+
+</html>
