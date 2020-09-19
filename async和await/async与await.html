@@ -27,11 +27,11 @@
         }
 
         async function main() {
-         return   await sendAjax("http://47.106.165.163:3000/user/playlist?uid=32953014");
+            let result = await sendAjax("http://47.106.165.163:3000/user/playlist?uid=32953014");
+            console.log(result)
         }
-        main().then(value=>{
-            console.log(value)
-        })
+        main()
+        
     </script>
 </body>
 
