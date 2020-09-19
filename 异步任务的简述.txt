@@ -1,0 +1,37 @@
+js是单线程语言，在进行读取数据，文件是，是异步操作
+
+一般情况下使用callback函数，一层一层嵌套（容易出现回调地狱）
+
+Promise的出现将异步事件实现链式结构，Promise.then(函数（参数）），then里面的函数只有在第一个promise任务结束后才会执行，且第一个任务的结果将作为then的参数传入函数中，可以连接多次 .then()。
+
+Promise.all([p1,p2,p3]) all方法把三个promise异步任务的结构放入数组中传入Promise对象中，如果一个出错则不进行后面，返回reject结果
+
+
+Generator函数
+function * generator（）｛
+	
+	yield ......
+
+	yield ......
+
+	yield ......
+	
+｝
+	Generator函数执行产生一个指针对象，
+
+	yield表达式就是暂停标志，使用next方法可向下继续执行
+
+	next()方法的参数代表着上一次yield表达式的返回值。
+
+
+
+async 函数相当于自动运行的Generator函数，他返回的是Promise对象，
+
+await表示紧跟在后面的表达式需要等待结果。
+await 后面一般是promise对象，诺不是，则会转换为 状态为resloved的Promise对象，值就是他自己
+
+一般async函数里有try catch语法
+try里放在 多个await 异步任务
+
+
+
