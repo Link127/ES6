@@ -11,25 +11,20 @@
     <script>
         function ajaxPromise(url, method, flag = true) {
             return new Promise((resolve, reject) => {
+                http = String(method).toLocaleUpperCase();
                 var xhr = new XMLHttpRequest;
-                xhr.open(method, url);
+                xhr.open(method, url)
                 xhr.send();
-                xhr.onreadystatechange = function () {
-                    if(xhr.readyState === 4){
-                        if(xhr.status>=200&&xhr.status<300){
-                            resolve(xhr.responseText)
-                        }
-                        else{
-                            reject(113)
-                        }
+                xhr.onload = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        resolve(xhr.responseText)
+                    } else {
+                        reject("error");
                     }
                 }
             })
         }
-        let url = "http://47.106.165.163:3000/user/playlist?uid=32953014"
-        ajaxPromise(url, "GET").then(value=>{
-            console.log(value)
-        },err=>{console.log(err)})
+        ajaxPromise("http://47.106.165.163:3000/user/playlist?uid=32953014", "get").then(value => console.log(value))
     </script>
 </body>
 
