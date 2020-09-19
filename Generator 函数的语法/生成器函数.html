@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 每过一秒输出一个不一样的内容
+        // 回调函数写法
+        // setTimeout(() => {
+        //     console.log(111)
+        //     setTimeout(() => {
+        //         console.log(222)
+        //         setTimeout(() => {
+        //             console.log(333)
+        //         }, 3000)
+        //     }, 2000)
+        // }, 1000)
+
+        // 使用Generator函数
+
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                tick.next()
+            }, 1000)
+        }
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                tick.next()
+            }, 2000)
+        }
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+                tick.next()
+            }, 3000)
+        }
+        function * TimeLog(){
+            yield one();
+            yield two();
+            yield three();
+        }
+        var tick = TimeLog();
+        tick.next()
+    </script>
+</body>
+
+</html>
