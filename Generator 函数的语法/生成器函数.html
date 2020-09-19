@@ -23,31 +23,65 @@
 
         // 使用Generator函数
 
-        function one() {
+        // function one() {
+        //     setTimeout(() => {
+        //         console.log(111);
+        //         tick.next()
+        //     }, 1000)
+        // }
+        // function two() {
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         tick.next()
+        //     }, 2000)
+        // }
+        // function three() {
+        //     setTimeout(() => {
+        //         console.log(333);
+        //         tick.next()
+        //     }, 3000)
+        // }
+        // function * TimeLog(){
+        //     yield one();
+        //     yield two();
+        //     yield three();
+        // }
+        // var tick = TimeLog();
+        // tick.next()
+
+        // 模拟异步，获取数据
+
+        function getUser() {
             setTimeout(() => {
-                console.log(111);
-                tick.next()
+                let data = "用户名"
+                tick.next(data)//第二次next调用的参数作为第一个yield的返回值
             }, 1000)
         }
-        function two() {
+
+        function getTime() {
             setTimeout(() => {
-                console.log(222);
-                tick.next()
-            }, 2000)
+                let data = "登入时间"
+                tick.next(data)//第三次next调用的参数作为第二个yield的返回值
+            }, 1000)
         }
-        function three() {
+
+        function getData() {
             setTimeout(() => {
-                console.log(333);
-                tick.next()
-            }, 3000)
+                let data = "用户数据"
+                tick.next(data)//第四次next调用的参数作为第三个yield的返回值
+            }, 1000)
         }
-        function * TimeLog(){
-            yield one();
-            yield two();
-            yield three();
+
+        function* async () {
+            let a = yield getUser();
+            console.log(a);
+            let b = yield getData();
+            console.log(b)
+            let c = yield getTime();
+            console.log(c)
         }
-        var tick = TimeLog();
-        tick.next()
+        var tick = async ();
+        tick.next();//第一个next调用使指针对象指向第一个yield
     </script>
 </body>
 
