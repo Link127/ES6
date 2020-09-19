@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        function sendAjax(url) {
+            return new Promise((resolve, reject) => {
+                var xhr = new XMLHttpRequest;
+                xhr.open("GET", url);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            resolve(xhr.responseText)
+                        } else {
+                            reject(113)
+                        }
+                    }
+                }
+            })
+        }
+
+        async function main() {
+         return   await sendAjax("http://47.106.165.163:3000/user/playlist?uid=32953014");
+        }
+        main().then(value=>{
+            console.log(value)
+        })
+    </script>
 </body>
+
 </html>
